@@ -33,6 +33,9 @@
     <modules>
         <module>discount</module>
         <module>tax</module>
+        <module>multiple-devide</module>
+        <module>plus-minus</module>
+        <module>rounder</module>
         <!--<module>middle-layer</module>-->
         <!--<module>autotests</module>-->
         <!--<module>esb</module>-->
