@@ -24,7 +24,7 @@ public class Rounder {
     private static final Logger logger = LoggerFactory.getLogger(Rounder.class);
 
 
-    @RequestMapping(value = "/round/{amount}", method = {RequestMethod.GET},
+    @RequestMapping(value = "/round/{amount:.+}", method = {RequestMethod.GET},
             produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseBody
     public double multipleAndGet(@PathVariable final double amount) {

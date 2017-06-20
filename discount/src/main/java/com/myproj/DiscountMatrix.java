@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DiscountMatrix {
 
-    @RequestMapping(value = "/discount/{amount}", method = {RequestMethod.GET},
+    @RequestMapping(value = "/discount/{amount:.+}", method = {RequestMethod.GET},
             produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseBody
     public double getOrder(@PathVariable final double amount) {

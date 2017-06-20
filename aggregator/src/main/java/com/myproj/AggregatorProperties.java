@@ -9,8 +9,8 @@ import javax.validation.constraints.NotNull;
  * Created by dumin on 6/16/17.
  */
 @Component
-@ConfigurationProperties("tax")
-public class TaxProperties {
+@ConfigurationProperties("aggregator")
+public class AggregatorProperties {
 
     @NotNull
     private String devideAndGetUrl;
@@ -24,6 +24,8 @@ public class TaxProperties {
     private String discountUrl;
     @NotNull
     private String roundUrl;
+    @NotNull
+    private String taxUrl;
 
 
     public String getDiscountUrl() {
@@ -74,6 +76,13 @@ public class TaxProperties {
         this.minusAndGetUrl = minusAndGetUrl;
     }
 
+    public String getTaxUrl() {
+        return taxUrl;
+    }
+
+    public void setTaxUrl(String taxUrl) {
+        this.taxUrl = taxUrl;
+    }
 }
 
 

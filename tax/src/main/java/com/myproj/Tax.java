@@ -21,17 +21,10 @@ public class Tax {
     @Autowired
     MultipleDevideService multipleDevideService;
 
-    @RequestMapping(value = "/tax/{amount}", method = {RequestMethod.GET},
+    @RequestMapping(value = "/tax/", method = {RequestMethod.GET},
             produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     @ResponseBody
-    public double getOrder(@PathVariable final double amount) {
-        return getValue(amount);
-
-    }
-
-    // TODO: unusefull amount
-    @SuppressWarnings("unusefull amount")
-    private double getValue(double amount) {
+    public double getOrder() {
         return multipleDevideService.devideAndGet(20,100);
     }
 

@@ -36,7 +36,7 @@
         <module>multiple-devide</module>
         <module>plus-minus</module>
         <module>rounder</module>
-        <!--<module>middle-layer</module>-->
+        <module>aggregator</module>
         <!--<module>autotests</module>-->
         <!--<module>esb</module>-->
     </modules>
