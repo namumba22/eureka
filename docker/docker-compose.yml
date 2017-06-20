@@ -5,33 +5,48 @@ services:
    app1:
      container_name: app1
      image: lwieske/java-8:server-jre-8u121-slim
-     volumes:
-       - ./mvc-app.war:/app/mvc-app.war
-#       - ../build-artifacts/spring-boot/target/mvc-app.war:/app/mvc-app.war
-       - ./app_log:/app/log/
-#     ports:
-#       - "18080:8080"
-     command: ["java", "-jar", "/app/mvc-app.war", "&>>", "/app/log/csd-console.log &"]
-
-   app2:
-     container_name: app2
-     image: lwieske/java-8:server-jre-8u121-slim
-     volumes:
-       - ./mvc-app.war:/app/mvc-app.war
-#       - ../build-artifacts/spring-boot/target/mvc-app.war:/app/mvc-app.war
-       - ./app_log:/app/log/
-#     ports:
-#       - "28080:8080"
-     command: ["java", "-jar", "/app/mvc-app.war", "&>>", "/app/log/csd-console.log &"]
-
-   bal:
-     container_name: bal
-     image: nginx:1.10.3
      depends_on:
-      - app1
-      - app2
+       - eureka
      volumes:
-       - ./nginx/my.conf:/etc/nginx/nginx.conf
+       - ../rounder/target/rounder-0.5-SNAPSHOT.jar:/app/rounder.jar
+       - ./app_log:/app/log/
      ports:
-       - "80:80"
+       - "8084:8084"
+     command: ["java", "-jar", "/app/rounder.jar", "&>>", "/app/log/csd-console.log &"]
 
+   eureka:
+     container_name: eureka
+     image: netflixoss/eureka:1.3.1
+#     volumes:
+#       - ./eureka/eureka-client.properties:/tomcat/webapps/eureka/WEB-INF/classes/eureka-client.properties
+#       - ./eureka/eureka-server.properties:/tomcat/webapps/eureka/WEB-INF/classes/eureka-server.properties
+     ports:
+       - "8080:8080"
+       - "8001:8001"
+
+
+
+
+
+#   app2:
+#     container_name: app2
+#     image: lwieske/java-8:server-jre-8u121-slim
+#     volumes:
+#       - ./mvc-app.war:/app/mvc-app.war
+##       - ../build-artifacts/spring-boot/target/mvc-app.war:/app/mvc-app.war
+#       - ./app_log:/app/log/
+##     ports:
+##       - "28080:8080"
+#     command: ["java", "-jar", "/app/mvc-app.war", "&>>", "/app/log/csd-console.log &"]
+#
+#   bal:
+#     container_name: bal
+#     image: nginx:1.10.3
+#     depends_on:
+#      - app1
+#      - app2
+#     volumes:
+#       - ./nginx/my.conf:/etc/nginx/nginx.conf
+#     ports:
+#       - "80:80"
+#

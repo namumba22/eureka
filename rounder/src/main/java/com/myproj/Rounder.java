@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.MediaType;
@@ -16,6 +17,8 @@ import java.math.BigDecimal;
  */
 
 @SpringBootApplication
+@EnableEurekaClient
+//@EnableDiscoveryClient
 @ComponentScan(basePackages = {"com.myproj"})
 @PropertySource("classpath:rounder.properties")
 @RestController
