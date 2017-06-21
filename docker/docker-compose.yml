@@ -10,8 +10,18 @@ services:
      volumes:
        - ../rounder/target/rounder-0.5-SNAPSHOT.jar:/app/rounder.jar
        - ./app_log:/app/log/
-     ports:
-       - "8084:8084"
+#     ports:
+#       - "8084:8084"
+     command: ["java", "-jar", "/app/rounder.jar", "&>>", "/app/log/csd-console.log &"]
+
+   app2:
+     container_name: app2
+     image: lwieske/java-8:server-jre-8u121-slim
+     depends_on:
+       - eureka
+     volumes:
+       - ../rounder/target/rounder-0.5-SNAPSHOT.jar:/app/rounder.jar
+       - ./app_log:/app/log/
      command: ["java", "-jar", "/app/rounder.jar", "&>>", "/app/log/csd-console.log &"]
 
    eureka:
