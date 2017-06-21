@@ -15,32 +15,7 @@ public class TaxProperties {
     @NotNull
     private String devideAndGetUrl;
     @NotNull
-    private String multipleAndGetUrl;
-    @NotNull
-    private String plusAndGetUrl;
-    @NotNull
-    private String minusAndGetUrl;
-    @NotNull
-    private String discountUrl;
-    @NotNull
-    private String roundUrl;
-
-
-    public String getDiscountUrl() {
-        return discountUrl;
-    }
-
-    public void setDiscountUrl(String discountUrl) {
-        this.discountUrl = discountUrl;
-    }
-
-    public String getRoundUrl() {
-        return roundUrl;
-    }
-
-    public void setRoundUrl(String roundUrl) {
-        this.roundUrl = roundUrl;
-    }
+    private String multipleDevideServiceName;
 
     public String getDevideAndGetUrl() {
         return devideAndGetUrl;
@@ -50,30 +25,13 @@ public class TaxProperties {
         this.devideAndGetUrl = devideAndGetUrl;
     }
 
-    public String getMultipleAndGetUrl() {
-        return multipleAndGetUrl;
+    public String getMultipleDevideServiceName() {
+        return multipleDevideServiceName;
     }
 
-    public void setMultipleAndGetUrl(String multipleAndGetUrl) {
-        this.multipleAndGetUrl = multipleAndGetUrl;
+    public void setMultipleDevideServiceName(String multipleDevideServiceName) {
+        this.multipleDevideServiceName = multipleDevideServiceName;
     }
-
-    public String getPlusAndGetUrl() {
-        return plusAndGetUrl;
-    }
-
-    public void setPlusAndGetUrl(String plusAndGetUrl) {
-        this.plusAndGetUrl = plusAndGetUrl;
-    }
-
-    public String getMinusAndGetUrl() {
-        return minusAndGetUrl;
-    }
-
-    public void setMinusAndGetUrl(String minusAndGetUrl) {
-        this.minusAndGetUrl = minusAndGetUrl;
-    }
-
 }
 
 

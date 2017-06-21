@@ -1,20 +1,22 @@
 package com.myproj;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 /**
  * Created by dumin on 6/16/17.
  */
 public class MultipleDevideService {
 
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
-    private final RestTemplate restTemplate  = new RestTemplate();
+    private final RestTemplate restTemplate = new RestTemplate();
     private final TaxProperties properties;
 
     public MultipleDevideService(TaxProperties properties) {
@@ -27,14 +29,18 @@ public class MultipleDevideService {
 
         HttpEntity<?> entity = new HttpEntity<>(headers);
 
-        return restTemplate.exchange(properties.getDevideAndGetUrl(),
+        return restTemplate.exchange(getDevideAndGetUrl(),
                 HttpMethod.GET,
                 entity,
                 Double.class,
                 a,
                 b
         ).getBody();
+    }
 
+    private String getDevideAndGetUrl() {
+        return discoveryClient.getInstances(properties.getMultipleDevideServiceName()).get(0).getUri().toASCIIString() +
+                properties.getDevideAndGetUrl();
     }
 
 

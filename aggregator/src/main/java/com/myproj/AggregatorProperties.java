@@ -27,6 +27,18 @@ public class AggregatorProperties {
     @NotNull
     private String taxUrl;
 
+    @NotNull
+    private String discountServiceName;
+    @NotNull
+    private String multipleDevideServiceName;
+    @NotNull
+    private String plusMinusServiceName;
+    @NotNull
+    private String rounderServiceName;
+    @NotNull
+    private String taxServiceName;
+
+
 
     public String getDiscountUrl() {
         return discountUrl;
@@ -82,6 +94,46 @@ public class AggregatorProperties {
 
     public void setTaxUrl(String taxUrl) {
         this.taxUrl = taxUrl;
+    }
+
+    public String getDiscountServiceName() {
+        return discountServiceName;
+    }
+
+    public void setDiscountServiceName(String discountServiceName) {
+        this.discountServiceName = discountServiceName;
+    }
+
+    public String getMultipleDevideServiceName() {
+        return multipleDevideServiceName;
+    }
+
+    public void setMultipleDevideServiceName(String multipleDevideServiceName) {
+        this.multipleDevideServiceName = multipleDevideServiceName;
+    }
+
+    public String getPlusMinusServiceName() {
+        return plusMinusServiceName;
+    }
+
+    public void setPlusMinusServiceName(String plusMinusServiceName) {
+        this.plusMinusServiceName = plusMinusServiceName;
+    }
+
+    public String getRounderServiceName() {
+        return rounderServiceName;
+    }
+
+    public void setRounderServiceName(String rounderServiceName) {
+        this.rounderServiceName = rounderServiceName;
+    }
+
+    public String getTaxServiceName() {
+        return taxServiceName;
+    }
+
+    public void setTaxServiceName(String taxServiceName) {
+        this.taxServiceName = taxServiceName;
     }
 }
 
