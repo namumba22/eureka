@@ -1,5 +1,7 @@
 package com.myproj;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
  * Created by dumin on 6/16/17.
  */
 public class MultipleDevideService {
+    private static final Logger logger = LoggerFactory.getLogger(MultipleDevideService.class);
 
     @Autowired
     private DiscoveryClient discoveryClient;
@@ -39,9 +42,11 @@ public class MultipleDevideService {
     }
 
     private String getDevideAndGetUrl() {
+        logger.info("properties.getMultipleDevideServiceName() - {}", properties.getMultipleDevideServiceName());
+        logger.info("url - {}",
+                discoveryClient.getInstances(properties.getMultipleDevideServiceName()).get(0));
         return discoveryClient.getInstances(properties.getMultipleDevideServiceName()).get(0).getUri().toASCIIString() +
                 properties.getDevideAndGetUrl();
     }
-
 
 }

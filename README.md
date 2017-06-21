@@ -1,31 +1,30 @@
 from the root of eureka,
+
+compile:
 $mvn clean install
 
-
-go to docker.
+run:
 $docker-compose up
 
+test:
 eureka is accessable via.
-http://localhost:8080/eureka/v2/apps/
+http://localhost:8081/eureka/v2/apps/
 
-it's seet that it registered two apps.
-
-!!! but, how to call them no clue.
-
-=============
+pizza calculator:
+http://localhost:8080/calculate/4200/3
 
 
-how it should work:
+Components:
 
-aggregator
-discount
-multiple-devide
-plus-minus
-rounder
-tax
+Agregator: aggregator
 
-are the apps that should run under eureka hood.
-entry point should be http://localhost:8080/{H????}/calculate/{price}/{quantity}
+Endpoint:   discount
+Endpoint:   multiple-devide
+Endpoint:   plus-minus
+Endpoint:   rounder
+
+Agregator:  tax
+
 
 
 
