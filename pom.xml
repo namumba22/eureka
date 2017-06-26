@@ -28,15 +28,37 @@
         <hibernate.version>5.0.11.Final</hibernate.version>
         <cucumber.version>1.2.5</cucumber.version>
         <spring-kafka.version>1.2.0.RELEASE</spring-kafka.version>
+        <spring-claud.version>1.3.1.RELEASE</spring-claud.version>
+        <spring-cloud-dependencies.version>Camden.SR7</spring-cloud-dependencies.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <modules>
         <module>discount</module>
         <module>tax</module>
         <module>multiple-devide</module>
         <module>plus-minus</module>
-        <module>rounder</module>
         <module>aggregator</module>
+        <module>rounder</module>
+        <module>infrastructure</module>
         <!--<module>autotests</module>-->
         <!--<module>esb</module>-->
     </modules>
