@@ -80,8 +80,8 @@ services:
      volumes:
        - ../tax/target/tax-0.5-SNAPSHOT.jar:/app/tax.jar
        - ./app_log:/app/log/
-     ports:
-       - "8085:8085"
+#     ports:
+#       - "8085:8085"
      command: ["java", "-jar", "/app/tax.jar", "&>>", "/app/log/csd-console.log &"]
 
 
