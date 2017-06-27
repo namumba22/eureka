@@ -6,7 +6,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Docker, Docker compose, git and maven shoudl be installed. All scripts are given for shell/bash
+Docker, Docker compose, git, java and maven shoudl be installed. All scripts are given for shell/bash
 
 ```
 bash-3.2$ docker -v
@@ -21,11 +21,13 @@ git version 2.11.0 (Apple Git-81)
 bash-3.2$ mvn -v
 Apache Maven 3.3.9
 
+bash-3.2$ java -version
+java version "1.8.0_77"
 ```
 
 ### Installing
 
-Clone repository from git
+Clone a repository from git
 
 ```
 bash-3.2$ git clone https://github.com/namumba22/eureka.git
@@ -43,16 +45,15 @@ bash-3.2$ mvn clean install
 
 ### Run
 
-First run eureka server
+First run an eureka server
 
 ```
 bash-3.2$ cd ./docker
 bash-3.2$ docker-compose -f docker-compose-eureka.yml up
 ```
-and wait intill a request below returns responce
+
+and wait intill the request below returns the responce
 ```
-bash-3.2$ docker-compose -f docker-compose-eureka.yml up
-wait untill u receive responce
 bash-3.2$ curl http://localhost:8761/eureka/apps/
 <applications>
   <versions__delta>1</versions__delta>
