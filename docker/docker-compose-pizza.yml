@@ -2,21 +2,9 @@ version: '3'
 
 services:
 
-   eureka:
-     container_name: eureka
-     image: lwieske/java-8:server-jre-8u121-slim
-     volumes:
-       - ../infrastructure/eureka-server/target/eureka-server-0.5-SNAPSHOT.jar:/app/eureka-server-0.5-SNAPSHOT.jar
-       - ./app_log:/app/log/
-     ports:
-       - "8761:8761"
-     command: ["java", "-jar", "/app/eureka-server-0.5-SNAPSHOT.jar", "&>>", "/app/log/csd-console.log &"]
-
    aggregator:
      container_name: aggregator
      image: lwieske/java-8:server-jre-8u121-slim
-     depends_on:
-       - eureka
      volumes:
        - ../aggregator/target/aggregator-0.5-SNAPSHOT.jar:/app/aggregator.jar
        - ./app_log:/app/log/
@@ -27,61 +15,50 @@ services:
    discount:
      container_name: discount
      image: lwieske/java-8:server-jre-8u121-slim
-     depends_on:
-       - eureka
      volumes:
        - ../discount/target/discount-0.5-SNAPSHOT.jar:/app/discount.jar
        - ./app_log:/app/log/
-#     ports:
-#       - "8083:8083"
+     ports:
+       - "8083:8083"
      command: ["java", "-jar", "/app/discount.jar", "&>>", "/app/log/csd-console.log &"]
 
    multiple-devide:
      container_name: multiple-devide
      image: lwieske/java-8:server-jre-8u121-slim
-     depends_on:
-       - eureka
      volumes:
        - ../multiple-devide/target/multiple-devide-0.5-SNAPSHOT.jar:/app/multiple-devide.jar
        - ./app_log:/app/log/
-#     ports:
-#       - "8081:8081"
+     ports:
+       - "8081:8081"
      command: ["java", "-jar", "/app/multiple-devide.jar", "&>>", "/app/log/csd-console.log &"]
 
    plus-minus:
      container_name: plus-minus
      image: lwieske/java-8:server-jre-8u121-slim
-     depends_on:
-       - eureka
      volumes:
        - ../plus-minus/target/plus-minus-0.5-SNAPSHOT.jar:/app/plus-minus.jar
        - ./app_log:/app/log/
-#     ports:
-#       - "8082:8082"
+     ports:
+       - "8082:8082"
      command: ["java", "-jar", "/app/plus-minus.jar", "&>>", "/app/log/csd-console.log &"]
-#
    rounder:
      container_name: rounder
      image: lwieske/java-8:server-jre-8u121-slim
-     depends_on:
-       - eureka
      volumes:
        - ../rounder/target/rounder-0.5-SNAPSHOT.jar:/app/rounder.jar
        - ./app_log:/app/log/
-#     ports:
-#       - "8084:8084"
+     ports:
+       - "8084:8084"
      command: ["java", "-jar", "/app/rounder.jar", "&>>", "/app/log/csd-console.log &"]
 
    tax:
      container_name: tax
      image: lwieske/java-8:server-jre-8u121-slim
-     depends_on:
-       - eureka
      volumes:
        - ../tax/target/tax-0.5-SNAPSHOT.jar:/app/tax.jar
        - ./app_log:/app/log/
-#     ports:
-#       - "8085:8085"
+     ports:
+       - "8085:8085"
      command: ["java", "-jar", "/app/tax.jar", "&>>", "/app/log/csd-console.log &"]
 
 

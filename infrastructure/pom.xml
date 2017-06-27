@@ -17,5 +17,6 @@
     <modules>
         <module>eureka-server</module>
         <module>feign</module>
+        <module>jmeter</module>
     </modules>
 </project>

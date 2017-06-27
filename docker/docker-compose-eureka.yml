@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+   eureka:
+     container_name: eureka
+     image: lwieske/java-8:server-jre-8u121-slim
+     volumes:
+       - ../infrastructure/eureka-server/target/eureka-server-0.5-SNAPSHOT.jar:/app/eureka-server-0.5-SNAPSHOT.jar
+       - ./app_log:/app/log/
+     ports:
+       - "8761:8761"
+     command: ["java", "-jar", "/app/eureka-server-0.5-SNAPSHOT.jar", "&>>", "/app/log/csd-console.log &"]
