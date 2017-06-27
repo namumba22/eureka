@@ -1,4 +1,4 @@
-.idea/*
+**/.idea/
 **/target/
 **/app_data/
 **/app_log/
@@ -18,3 +18,4 @@ tools/local-docker-compose/.vagrant/
 tools/local-docker-compose/db_dir/*
 tools/local-docker-compose/csd-apache_logdir/*
 tools/local-docker-compose/csd-app_logdir/*
+docker/.DS_Store
