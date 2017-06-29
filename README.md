@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/ExampleDriven/spring-cloud-zuul-example.svg?branch=master)](https://travis-ci.org/ExampleDriven/spring-cloud-zuul-example)
+[![Build Status](https://api.travis-ci.org/namumba22/eureka.svg?branch=master)](https://travis-ci.org/namumba22/eureka)
 
 # Eureka example
 Eureka, Feign, Ribbon client-service sample. Based on docker
@@ -72,13 +72,23 @@ bash-3.2$ docker-compose -f docker-compose-pizza.yml up
 
 ## Testing the app
 
-eureka is accessable via.
-http://localhost:8761/eureka/apps/
+### Components
+
+Service | Type | test url
+--- |---|---
+eireka itself | ... | http://localhost:8761/eureka/apps/
+aggregator| Aggregator | http://localhost:8080/calculate/1000/5
+tax | Aggregator | http://localhost:8085/tax
+discount | Endpoint|http://localhost:9090/routes
+multiple-devide | Endpoint|http://localhost:8081/devide/12/5
+plus-minus | Endpoint|http://localhost:8082/plus/12/3
+rounder | Endpoint| http://localhost:8084/round/9.55888
+
 
 pizza calculator:
 http://localhost:8080/calculate/4200/3
 
-## Running a Jmeter tests
+### Running a Jmeter tests
 
 Enter jmeter project folder
 
@@ -98,50 +108,9 @@ Results could be reviewed via files
 
 * **Andy** - *Initial work* - [PurpleBooth](https://github.com/namumba22/)
 
-## Components
-
-Service | Type | test url
---- |---|---
-aggregator| Aggregator | http://localhost:9090/api/customer-service/customer/1
-tax | Aggregator | http://localhost:9090/api/customer-by-address/customer/1
-Service registration by Eureka service id |Endpoint| http://localhost:9090/api/customer-by-service/customer/1
-Display Routes | Endpoint|http://localhost:9090/routes
-Display Routes | Endpoint|http://localhost:9090/routes
-Display Routes | Endpoint|http://localhost:9090/routes
-Display Routes | Endpoint|http://localhost:9090/routes
-Display Routes | Endpoint|http://localhost:9090/routes
-
-
-* Aggregators:
-** aggregator
-** tax
-
-* Endpoints:
-
-** discount
-** multiple-devide
-** plus-minus
-** rounder
 
 ## Cation
 
 !!! it's not configured for timeout ... that's why sometimes some exceptions with the error coud appear.
 
-
-# spring-cloud-zuul-example
-
-This is the source code for the blog post
-
-https://exampledriven.wordpress.com/2016/07/06/spring-cloud-zuul-example/
-
-
-Feature |test url
---- |---
-Service auto registration via Eureka | http://localhost:9090/api/customer-service/customer/1
-Service registration by address | http://localhost:9090/api/customer-by-address/customer/1
-Service registration by Eureka service id | http://localhost:9090/api/customer-by-service/customer/1
-Display Routes | http://localhost:9090/routes
-Static response | http://localhost:9090/api/static
-Static response | http://localhost:9090/api/static/dsf.svg
-Dynamic routing | http://localhost:9090/api/redirect
 
