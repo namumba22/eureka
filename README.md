@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/ExampleDriven/spring-cloud-zuul-example.svg?branch=master)](https://travis-ci.org/ExampleDriven/spring-cloud-zuul-example)
+
 # Eureka example
 Eureka, Feign, Ribbon client-service sample. Based on docker
 
@@ -97,6 +100,18 @@ Results could be reviewed via files
 
 ## Components
 
+Service | Type | test url
+--- |---|---
+aggregator| Aggregator | http://localhost:9090/api/customer-service/customer/1
+tax | Aggregator | http://localhost:9090/api/customer-by-address/customer/1
+Service registration by Eureka service id |Endpoint| http://localhost:9090/api/customer-by-service/customer/1
+Display Routes | Endpoint|http://localhost:9090/routes
+Display Routes | Endpoint|http://localhost:9090/routes
+Display Routes | Endpoint|http://localhost:9090/routes
+Display Routes | Endpoint|http://localhost:9090/routes
+Display Routes | Endpoint|http://localhost:9090/routes
+
+
 * Aggregators:
 ** aggregator
 ** tax
@@ -112,4 +127,21 @@ Results could be reviewed via files
 
 !!! it's not configured for timeout ... that's why sometimes some exceptions with the error coud appear.
 
+
+# spring-cloud-zuul-example
+
+This is the source code for the blog post
+
+https://exampledriven.wordpress.com/2016/07/06/spring-cloud-zuul-example/
+
+
+Feature |test url
+--- |---
+Service auto registration via Eureka | http://localhost:9090/api/customer-service/customer/1
+Service registration by address | http://localhost:9090/api/customer-by-address/customer/1
+Service registration by Eureka service id | http://localhost:9090/api/customer-by-service/customer/1
+Display Routes | http://localhost:9090/routes
+Static response | http://localhost:9090/api/static
+Static response | http://localhost:9090/api/static/dsf.svg
+Dynamic routing | http://localhost:9090/api/redirect
 
