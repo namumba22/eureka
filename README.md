@@ -79,7 +79,7 @@ Service | Type | test url
 eireka itself | ... | http://localhost:8761/eureka/apps/
 aggregator| Aggregator | http://localhost:8080/calculate/1000/5
 tax | Aggregator | http://localhost:8085/tax
-discount | Endpoint|http://localhost:9090/routes
+discount | Endpoint|http://localhost:8083/discount/12
 multiple-devide | Endpoint|http://localhost:8081/devide/12/5
 plus-minus | Endpoint|http://localhost:8082/plus/12/3
 rounder | Endpoint| http://localhost:8084/round/9.55888
