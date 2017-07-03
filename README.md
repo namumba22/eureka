@@ -112,5 +112,8 @@ Results could be reviewed via files
 ## Cation
 
 !!! it's not configured for timeout ... that's why sometimes some exceptions with the error coud appear.
+TODO:
+1. write warm-up script
+2. proceed with ZUUL ... it's actualy preconfigured
 
 

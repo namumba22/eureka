@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-@ComponentScan(basePackages = {"com.myproj"})
+//@ComponentScan(basePackages = {"com.myproj"})
 @PropertySource("classpath:tax.properties")
 @RestController
 public class Tax {
